@@ -1,8 +1,15 @@
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import Divider from "./Divider";
 
 function HomeWelcome() {
+  const { inView, inViewRef } = useIntersectionObserver();
   return (
-    <section className="mt-[30rem] relative px-64 xmax:px-44 tablet:px-32 mid:px-12 mid:mt-32">
+    <section
+      className={`mt-[30rem] relative px-64 xmax:px-44 tablet:px-32 mid:px-12 mid:mt-32  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
+    >
       <h2 className="text-[25rem] xmax:text-[19rem] text-very-light-grey leading-[20rem] tracking-[-0.5rem] font-bold absolute top-[-15rem] max:top-[-20rem] max:text-[12rem] mid:hidden">
         Welcome
       </h2>

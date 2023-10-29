@@ -1,8 +1,11 @@
 import { HomeSlides, useHome } from "../contexts/HomeContext";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import HomeHeroSectionBox from "./HomeHeroSectionBox";
 import HomeSlidesNav from "./HomeSlidesNav";
 
 function HomeHeroSection() {
+  const { inView, inViewRef } = useIntersectionObserver();
+
   const { id } = useHome();
   const currentSlide = HomeSlides.find((slide) => slide.id === id);
 
@@ -21,7 +24,10 @@ function HomeHeroSection() {
 
   return (
     <section
-      className="min-h-[72rem] relative bg-cover flex flex-col mx-64 xmax:mx-44 tablet:mx-32 mid:mx-0"
+      className={`min-h-[72rem] relative bg-cover flex flex-col mx-64 xmax:mx-44 tablet:mx-32 mid:mx-0  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
       style={backgroundStyle}
     >
       {currentSlide && (

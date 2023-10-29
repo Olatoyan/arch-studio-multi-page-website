@@ -1,8 +1,15 @@
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import Divider from "./Divider";
 
 function AboutHeritage() {
+  const { inViewRef, inView } = useIntersectionObserver();
   return (
-    <section className="grid grid-cols-2 gap-12 items-end mt-[20rem] px-64 xmax:px-44 tablet:px-32 mid:px-12 max:grid-cols-1 mid:mt-40">
+    <section
+      className={`grid grid-cols-2 gap-12 items-end mt-[20rem] px-64 xmax:px-44 tablet:px-32 mid:px-12 max:grid-cols-1 mid:mt-40  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
+    >
       <div>
         <Divider />
         <h2 className="max-w-[44.6rem] text-very-dark-blue text-[7.2rem] font-bold leading-[6.4rem] tracking-[-0.2rem] pb-20 mid:max-w-[27.1rem] mid:text-[4.8rem] nid:leading-[5.2rem] mid:tracking-[-0.1714rem] mid:pb-9">

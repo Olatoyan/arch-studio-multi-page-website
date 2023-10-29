@@ -1,4 +1,7 @@
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
+
 function PortfolioBox({ title, date, desktopImg, tabletImg, mobileImg }) {
+  const { inViewRef, inView } = useIntersectionObserver();
   const isTablet = window.innerWidth <= 1000 && window.innerWidth >= 700;
   const isMobile = window.innerWidth < 700;
 
@@ -11,11 +14,12 @@ function PortfolioBox({ title, date, desktopImg, tabletImg, mobileImg }) {
     backgroundRepeat: "no-repeat",
   };
 
-  console.log(tabletImg);
-
   return (
     <div
-      className="flex flex-col justify-end h-[56rem] bg-black px-16 pb-24 xmax:h-[24rem] mid:px-8 mid:pb-12"
+      className={`flex flex-col justify-end h-[56rem] bg-black px-16 pb-24 xmax:h-[24rem] mid:px-8 mid:pb-12  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
       style={backgroundStyle}
     >
       <h3 className="text-[3.2rem] font-bold leading-[4rem]">{title}</h3>

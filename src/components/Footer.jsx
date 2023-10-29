@@ -2,9 +2,16 @@ import { Link } from "react-router-dom";
 import ArrowIcon from "./ArrowIcon";
 import Cta from "./Cta";
 import NavList from "./NavList";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 function Footer() {
+  const { inViewRef, inView } = useIntersectionObserver();
   return (
-    <footer className="flex items-center mt-80 px-64 xmax:px-0 mid:flex-col mid:mt-40">
+    <footer
+      className={`flex items-center mt-80 px-64 xmax:px-0 mid:flex-col mid:mt-40  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
+    >
       <Link
         className="h-[18rem] w-[18rem] bg-very-dark-blue flex justify-center items-center max:h-[10rem] max:w-[10rem] p-8 mid:-mb-24 mid:z-[2]"
         to="/"

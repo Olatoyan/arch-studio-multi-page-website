@@ -11,9 +11,16 @@ import MobileDelSol from "/portfolio/mobile/image-del-sol.jpg";
 import MobileTower from "/portfolio/mobile/image-228b.jpg";
 import MobilePrototype from "/portfolio/mobile/image-prototype.jpg";
 import { Link } from "react-router-dom";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 function HomeFeatured() {
+  const { inViewRef, inView } = useIntersectionObserver();
   return (
-    <section className="mt-80 px-64 xmax:px-44 tablet:px-12 mid:mt-40">
+    <section
+      className={`mt-80 px-64 xmax:px-44 tablet:px-12 mid:mt-40  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
+    >
       <div className="flex items-center justify-between mb-[6.5rem] ">
         <h2 className="text-[7.2rem] text-very-dark-blue leading-[6.4rem] tracking-[-0.2rem] font-bold mid:text-[4.8rem] mid:leading-[5.2rem] mid:tracking-[-0.1714rem] mid:max-w-[31.1rem]">
           Featured

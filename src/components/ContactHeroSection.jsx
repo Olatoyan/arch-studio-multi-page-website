@@ -1,10 +1,17 @@
 import DesktopImg from "/contact/desktop/image-hero.jpg";
 import TabletImg from "/contact/tablet/image-hero.jpg";
 import MobileImg from "/contact/mobile/image-hero.jpg";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 function ContactHeroSection() {
+  const { inViewRef, inView } = useIntersectionObserver();
   return (
-    <section className="grid grid-cols-2 items-end px-64 xmax:px-44 tablet:px-32  max:grid-cols-1 mid:px-0">
+    <section
+      className={`grid grid-cols-2 items-end px-64 xmax:px-44 tablet:px-32  max:grid-cols-1 mid:px-0  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
+    >
       <div className="relative">
         <picture className="relative" style={{ zIndex: 1 }}>
           <source srcSet={MobileImg} media="(max-width: 25em)" />

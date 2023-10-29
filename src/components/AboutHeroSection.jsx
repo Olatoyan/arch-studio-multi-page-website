@@ -1,10 +1,18 @@
 import DesktopImage from "/about/desktop/image-hero.jpg";
 import TabletImage from "/about/tablet/image-hero.jpg";
 import MobileImage from "/about/mobile/image-hero.jpg";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 function AboutHeroSection() {
+  const { inViewRef, inView } = useIntersectionObserver();
+
   return (
-    <section className="grid grid-cols-2 items-end px-64 xmax:px-44 tablet:px-32  max:grid-cols-1 mid:px-0">
+    <section
+      className={`grid grid-cols-2 items-end px-64 xmax:px-44 tablet:px-32  max:grid-cols-1 mid:px-0  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
+    >
       <div className="relative">
         <picture className="relative z-[1]">
           <source srcSet={MobileImage} media="(max-width: 25em)" />

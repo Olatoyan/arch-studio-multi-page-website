@@ -1,8 +1,10 @@
 import { useContact } from "../contexts/ContactContext";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import ArrowIcon from "./ArrowIcon";
 import FormInputs from "./FormInputs";
 
 function ContactConnect() {
+  const { inViewRef, inView } = useIntersectionObserver();
   const {
     name,
     email,
@@ -42,7 +44,12 @@ function ContactConnect() {
   }
 
   return (
-    <section className="flex gap-[15rem] mt-[13rem] px-64 xmax:px-44 tablet:px-32 mid:px-12 tablet:flex-col tablet:gap-20 mid:mt-40">
+    <section
+      className={`flex gap-[15rem] mt-[13rem] px-64 xmax:px-44 tablet:px-32 mid:px-12 tablet:flex-col tablet:gap-20 mid:mt-40  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
+    >
       <div>
         <h2 className="text-very-dark-blue text-[7.2rem] font-bold leading-[6.4rem] tracking-[-0.2rem] max-w-[35rem] mid:max-w-[27.1rem] mid:text-[4.8rem] nid:leading-[5.2rem] mid:tracking-[-0.1714rem]">
           Connect with us

@@ -3,8 +3,10 @@ import tabletImg from "/home/tablet/image-small-team.jpg";
 import mobileImg from "/home/mobile/image-small-team.jpg";
 import ArrowIcon from "./ArrowIcon";
 import Cta from "./Cta";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 function HomeSmallTeam() {
+  const { inViewRef, inView } = useIntersectionObserver();
   const isTablet = window.innerWidth <= 1000 && window.innerWidth >= 700;
   const isMobile = window.innerWidth < 700;
 
@@ -16,7 +18,10 @@ function HomeSmallTeam() {
 
   return (
     <section
-      className="min-h-[56rem] bg-cover relative mt-80 mx-64 xmax:mx-44 tablet:mx-32 mid:mx-0 mid:mt-40"
+      className={`min-h-[56rem] bg-cover relative mt-80 mx-64 xmax:mx-44 tablet:mx-32 mid:mx-0 mid:mt-40  fade-in ${
+        inView ? "in-view" : ""
+      }`}
+      ref={inViewRef}
       style={backgroundStyle}
     >
       <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50"></div>
