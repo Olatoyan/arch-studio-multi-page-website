@@ -4,7 +4,7 @@ import PortfolioBox from "./PortfolioBox";
 function PortfolioIndex() {
   console.log(PortfolioDetails);
   return (
-    <section className="grid grid-cols-3 gap-12">
+    <section className="grid grid-cols-3 gap-12 px-64 xmax:px-44 xmax:grid-cols-1 tablet:px-32 mid:px-12 mid:pt-28">
       {PortfolioDetails.map((item) => (
         <PortfolioBox
           title={item.title}

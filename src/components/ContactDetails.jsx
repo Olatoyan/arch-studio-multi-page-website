@@ -2,9 +2,9 @@ import ContactOffices from "./ContactOffices";
 
 function ContactDetails() {
   return (
-    <section className="grid grid-cols-3 gap-12 mt-[28rem]">
+    <section className="grid grid-cols-3 gap-12 mt-[28rem]  px-64 xmax:px-44 tablet:px-32 mid:px-12 tablet:grid-cols-1 tablet:gap-16 mid:mt-40">
       <div>
-        <h2 className="max-w-[35rem] text-[7.2rem] font-bold leading-[6.4rem] tracking-[-0.2rem] text-very-dark-blue">
+        <h2 className="max-w-[35rem] text-[7.2rem] font-bold leading-[6.4rem] tracking-[-0.2rem] text-very-dark-blue mid:max-w-[27.1rem] mid:text-[4.8rem] nid:leading-[5.2rem] mid:tracking-[-0.1714rem] ">
           Contact Details
         </h2>
       </div>

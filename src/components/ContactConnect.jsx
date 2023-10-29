@@ -42,9 +42,9 @@ function ContactConnect() {
   }
 
   return (
-    <section className="flex gap-[15rem] mt-[13rem]">
+    <section className="flex gap-[15rem] mt-[13rem] px-64 xmax:px-44 tablet:px-32 mid:px-12 tablet:flex-col tablet:gap-20 mid:mt-40">
       <div>
-        <h2 className="text-very-dark-blue text-[7.2rem] font-bold leading-[6.4rem] tracking-[-0.2rem] max-w-[35rem]">
+        <h2 className="text-very-dark-blue text-[7.2rem] font-bold leading-[6.4rem] tracking-[-0.2rem] max-w-[35rem] mid:max-w-[27.1rem] mid:text-[4.8rem] nid:leading-[5.2rem] mid:tracking-[-0.1714rem]">
           Connect with us
         </h2>
       </div>
@@ -85,16 +85,16 @@ export default ContactConnect;
 function Message({ type, placeholder, value, onChange, error }) {
   return (
     <div>
-      <div className="flex justify-between pb-4 border-b-very-dark-blue border-b px-12 ">
+      <div className="flex pb-4 border-b-very-dark-blue border-b px-12 ">
         <textarea
           type={type}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className="border-0 outline-none bg-transparent placeholder:text-light-grey text-[2rem] font-bold tracking-[-0.0312rem] text-very-dark-blue resize-none w-[80%]"
+          className="border-0 outline-none bg-transparent placeholder:text-light-grey text-[2rem] font-bold tracking-[-0.0312rem] text-very-dark-blue resize-none w-[80%] mid:w-[75%]"
         />
         {error && (
-          <p className="text-error text-[1.8rem] font-bold tracking-[-0.0281rem]">
+          <p className="text-error text-[1.8rem] font-bold tracking-[-0.0281rem] ml-auto mid:text-[1.5rem]">
             {error}
           </p>
         )}

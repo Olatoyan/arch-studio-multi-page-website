@@ -4,7 +4,7 @@ import MobileImg from "/contact/mobile/image-map.png";
 
 function ContactMap() {
   return (
-    <section className="mt-[16.3rem]">
+    <section className="mt-[16.3rem] px-64 xmax:px-44 tablet:px-32 mid:px-0 mid:mt-40">
       <picture>
         <source srcSet={MobileImg} media="(max-width: 37.5em)" />
         <source srcSet={TabletImg} media="(max-width: 56.25em)" />

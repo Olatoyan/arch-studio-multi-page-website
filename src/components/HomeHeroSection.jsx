@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { HomeSlides, useHome } from "../contexts/HomeContext";
 import HomeHeroSectionBox from "./HomeHeroSectionBox";
 import HomeSlidesNav from "./HomeSlidesNav";
@@ -6,15 +5,10 @@ import HomeSlidesNav from "./HomeSlidesNav";
 function HomeHeroSection() {
   const { id } = useHome();
   const currentSlide = HomeSlides.find((slide) => slide.id === id);
-  console.log(currentSlide.desktopImg);
-  console.log(currentSlide.tabletImg);
-  console.log(currentSlide.mobileImg);
 
-  // Define media query conditions
-  const isTablet = window.innerWidth <= 1200 && window.innerWidth >= 900;
-  const isMobile = window.innerWidth < 900;
+  const isTablet = window.innerWidth <= 1000 && window.innerWidth >= 700;
+  const isMobile = window.innerWidth < 700;
 
-  // Define styles based on the conditions
   const backgroundStyle = {
     backgroundImage: `url(${
       isTablet
@@ -27,7 +21,7 @@ function HomeHeroSection() {
 
   return (
     <section
-      className="min-h-[72rem] relative bg-cover flex flex-col"
+      className="min-h-[72rem] relative bg-cover flex flex-col mx-64 xmax:mx-44 tablet:mx-32 mid:mx-0"
       style={backgroundStyle}
     >
       {currentSlide && (

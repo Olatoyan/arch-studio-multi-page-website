@@ -2,7 +2,7 @@ import HomeSlidesNavItem from "./HomeSlidesNavItem";
 
 function HomeSlidesNav() {
   return (
-    <div className="z-10 relative mt-auto -ml-32">
+    <div className="z-10 relative mt-auto -ml-32 tablet:-ml-20 mid:hidden">
       <ul className="flex items-center">
         <HomeSlidesNavItem number={1} />
         <HomeSlidesNavItem number={2} />

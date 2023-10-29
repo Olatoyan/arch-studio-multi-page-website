@@ -1,11 +1,17 @@
 import NavLinks from "./NavLinks";
 
-function NavList() {
+function NavList({ type }) {
   return (
-    <ul className="flex items-center gap-24">
-      <NavLinks to="/portfolio">Portfolio</NavLinks>
-      <NavLinks to="/about">About Us</NavLinks>
-      <NavLinks to="/contact">Contact</NavLinks>
+    <ul className="flex items-center gap-24 mid:flex-col mid:gap-12">
+      <NavLinks to="/portfolio" type={type}>
+        Portfolio
+      </NavLinks>
+      <NavLinks to="/about" type={type}>
+        About Us
+      </NavLinks>
+      <NavLinks to="/contact" type={type}>
+        Contact
+      </NavLinks>
     </ul>
   );
 }

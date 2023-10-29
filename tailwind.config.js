@@ -16,6 +16,14 @@ export default {
       },
       screens: {
         xmax: { max: "75em" },
+        max: { max: "64em" },
+        tablet: { max: "56.25em" },
+        mid: { max: "43.75em" },
+        mobile: { max: "31.25em" },
+        xsm: { max: "25em" },
+      },
+      gridTemplateColumns: {
+        sm: "3rem 1fr",
       },
     },
   },

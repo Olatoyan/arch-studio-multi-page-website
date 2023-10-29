@@ -146,17 +146,22 @@ function reducer(state, action) {
   switch (action.type) {
     case "changeHomeSlide":
       return { ...state, id: action.payload };
+    case "toggleMenu":
+      return { ...state, isMenuOpen: !state.isMenuOpen };
+    default:
+      return state;
   }
 }
 
 function HomeProvider({ children }) {
-  const [{ id }, dispatch] = useReducer(reducer, initialState);
+  const [{ id, isMenuOpen }, dispatch] = useReducer(reducer, initialState);
 
   return (
     <HomeContext.Provider
       value={{
         dispatch,
         id,
+        isMenuOpen,
       }}
     >
       {children}
